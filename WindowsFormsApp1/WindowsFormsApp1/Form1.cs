@@ -85,24 +85,28 @@ namespace WindowsFormsApp1
 
             ctx.FillRectangle(Brushes.Black, rect);
 
-            //Brush b = new SolidBrush(); - dodanie kanału alfa
+            SolidBrush alphaBrush = new SolidBrush(Color.FromArgb(128, 255, 0, 0));
 
-            ctx.DrawString("Ala ma kota", f, Brushes.Red, posX, posY);
-            ctx.DrawString("Kot ma Ale", f, Brushes.Red, pos2X, posY);
+            ctx.DrawString("Ala ma kota", f, alphaBrush, posX, posY);
+            ctx.DrawString("Kot ma Ale", f, alphaBrush, pos2X, posY);
 
             posX += 20;
             pos2X -= 20;
-
-            //this.pictureBox1.Left += 20;
+           
 
             if (posX > this.ClientSize.Width || pos2X > this.ClientSize.Width)
             {
                 posX =- this.ClientSize.Width;
-                pos2X = -this.ClientSize.Width;
+                pos2X =- this.ClientSize.Width;
 
             }
 
             this.pictureBox1.Image = bmp;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
