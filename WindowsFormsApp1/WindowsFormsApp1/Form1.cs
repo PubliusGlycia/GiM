@@ -98,7 +98,6 @@ namespace WindowsFormsApp1
             {
                 posX =- this.ClientSize.Width;
                 pos2X =- this.ClientSize.Width;
-
             }
 
             this.pictureBox1.Image = bmp;
