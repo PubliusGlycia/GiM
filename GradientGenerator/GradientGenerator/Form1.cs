@@ -30,20 +30,42 @@ namespace GradientGenerator
             int bMin = Color.Blue.B;
             int bMax = Color.Black.B;
 
-            Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);            
+            Rectangle rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
 
-            for(int i = 0; i < pictureBox1.Width*0.75; i++)
+            for (int i = 0; i < pictureBox1.Width * 0.6; i++)
             {
-                double divider = (i / (float)pictureBox1.Width)*0.75;
-                
+                double divider = (i / (float)pictureBox1.Width) * 1.6;
+
                 var rAverage = (int)(rMin * (1 - divider) + rMax * divider);
                 var gAverage = (int)(gMin * (1 - divider) + gMax * divider);
                 var bAverage = (int)(bMin * (1 - divider) + bMax * divider);
-                
+
                 for (int Ycount = 0; Ycount < pictureBox1.Height; Ycount++)
                 {
                     bmp.SetPixel(i, Ycount, Color.FromArgb(rAverage, gAverage, bAverage));
-                }                
+                }
+            }
+
+            
+            rMin = Color.Black.R;
+            rMax = Color.Red.R;
+            gMin = Color.Black.G;
+            gMax = Color.Red.G;
+            bMin = Color.Black.B;
+            bMax = Color.Red.B;
+
+            for (int i = (int)(pictureBox1.Width * 0.6); i < pictureBox1.Width-1; i++)
+            {
+                double divider = (i / (float)pictureBox1.Width);
+
+                var rAverage = (int)(rMin * (1 - divider) + rMax * divider);
+                var gAverage = (int)(gMin * (1 - divider) + gMax * divider);
+                var bAverage = (int)(bMin * (1 - divider) + bMax * divider);
+
+                for (int Ycount = 0; Ycount < pictureBox1.Height; Ycount++)
+                {
+                    bmp.SetPixel(i, Ycount, Color.FromArgb(rAverage, gAverage, bAverage));
+                }
             }
 
             Color pixelColor = bmp.GetPixel(pictureBox1.Width - 1, pictureBox1.Height - 1);
