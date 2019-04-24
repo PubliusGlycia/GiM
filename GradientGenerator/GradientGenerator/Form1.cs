@@ -46,7 +46,6 @@ namespace GradientGenerator
                 }
             }
 
-            
             rMin = Color.Black.R;
             rMax = Color.Red.R;
             gMin = Color.Black.G;
@@ -56,7 +55,8 @@ namespace GradientGenerator
 
             for (int i = (int)(pictureBox1.Width * 0.6); i < pictureBox1.Width-1; i++)
             {
-                double divider = (i / (float)pictureBox1.Width);
+                double divider = ((i - pictureBox1.Width * 0.6) / ((float)pictureBox1.Width - pictureBox1.Width * 0.6));
+                //Reason for the substraction is that the divider in the start of black-red for loop must be set to 0 in order to achieve desired color  
 
                 var rAverage = (int)(rMin * (1 - divider) + rMax * divider);
                 var gAverage = (int)(gMin * (1 - divider) + gMax * divider);
